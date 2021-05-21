@@ -104,8 +104,6 @@ components:
         - currency_pair
         - dealt_currency
         - conversion_date
-        - net_amount
-        - net_currency
         - created_at
         - metadata
         - reason
@@ -158,9 +156,6 @@ components:
         created_at:
           type: string
           example: "2021-03-20T10:08:12+1100"
-        net_amount:
+        net_details:
           type: number
           example: 1.07
-        net_currency:
-          type: string
-          example: AUD
