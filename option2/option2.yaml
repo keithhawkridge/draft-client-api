@@ -1,19 +1,19 @@
 openapi: 3.0.0
 servers:
   - description: AWX Demo
-    url: https://api-demo.airwallex.com/api
+    url: 'https://api-demo.airwallex.com/api'
 info:
   description: AWX FX Conversion Closeout API
-  version: "1.0"
+  version: '1.0'
   title: FX Conversion API
 tags:
   - name: Conversion
     description: Conversion
 paths:
-  '/v1/conversions':
+  /v1/conversions:
     post:
-      tags: 
-      - Conversion
+      tags:
+        - Conversion
       summary: Create single conversion
       operationId: conversion_create
       description: Creates a single conversion
@@ -26,8 +26,8 @@ paths:
                 $ref: '#/components/schemas/Conversion'
   '/v1/conversions/{conversion_id}/closeout':
     post:
-      tags: 
-      - Conversion
+      tags:
+        - Conversion
       summary: Close out an unsettled conversion.
       operationId: execute_closeout
       description: Executes a closeout of an unsettled conversion.
@@ -53,8 +53,8 @@ paths:
                 $ref: '#/components/schemas/Conversion'
   '/v1/conversions/{conversion_id}':
     get:
-      tags: 
-      - Conversion
+      tags:
+        - Conversion
       summary: Retrieve single conversion details.
       operationId: retrieve_conversion
       description: Pass a conversion ID to retrieve conversion details.
@@ -77,7 +77,7 @@ components:
     ConversionCloseoutRequest:
       type: object
       required:
-        - request_id      
+        - request_id
       properties:
         request_id:
           type: string
@@ -89,7 +89,7 @@ components:
           example: 97f699fe-dcf4-4462-92fa-80335301d9d9
     Conversion:
       type: object
-      required: 
+      required:
         - request_id
         - conversion_id
         - type
@@ -104,6 +104,7 @@ components:
         - currency_pair
         - dealt_currency
         - conversion_date
+        - net_details
         - created_at
         - metadata
         - reason
@@ -152,10 +153,14 @@ components:
           example: AUD
         conversion_date:
           type: string
-          example: "2021-03-22"
+          example: '2021-03-22'
         created_at:
           type: string
-          example: "2021-03-20T10:08:12+1100"
+          example: '2021-03-20T10:08:12+1100'
         net_details:
-          type: number
-          example: 1.07
+          type: object
+          example: {
+            "amount": 1.07,
+            "currency": "AUD",
+            "future_net_field": ""
+          }
