@@ -164,3 +164,8 @@ components:
             "currency": "AUD",
             "future_net_field": ""
           }
+        references:
+          type: object
+          example: {
+            "CANCELED_WALLET_LINE": "https://api-demo.airwallex.com/api#/Core_Resources/Balances/_api_v1_balances_history/get?request_id=67f699fe-dcf4-4462-92fa-20335301d9d8"
+          }
