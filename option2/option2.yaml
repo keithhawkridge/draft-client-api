@@ -50,7 +50,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConversionAlteration'
+                $ref: '#/components/schemas/Conversion'
   '/v1/conversions/{conversion_id}':
     get:
       tags: 
@@ -71,7 +71,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConversionAlteration'
+                $ref: '#/components/schemas/Conversion'
 components:
   schemas:
     ConversionCloseoutRequest:
@@ -88,65 +88,6 @@ components:
           format: uuid
           example: 97f699fe-dcf4-4462-92fa-80335301d9d9
     Conversion:
-      type: object
-      required: 
-        - request_id
-        - conversion_id
-        - status
-        - awx_rate
-        - client_rate
-        - buy_amount
-        - buy_currency
-        - sell_amount
-        - sell_currency
-        - currency_pair
-        - dealt_currency
-        - conversion_date
-        - created_at
-        - reason
-      properties:
-        request_id:
-          type: string
-          format: uuid
-          example: 67f699fe-dcf4-4462-92fa-20335301d9d8
-        conversion_id:
-          type: string
-          format: uuid
-          example: df98bkjr-jk4l-34jk-34nk-4905thgnjff
-        status:
-          type: string
-          example: completed
-        awx_rate:
-          type: number
-          example: 1.29
-        client_rate:
-          type: number
-          example: 1.31
-        buy_amount:
-          type: number
-          example: 1000
-        buy_currency:
-          type: string
-          example: USD
-        sell_amount:
-          type: number
-          example: 1290
-        sell_currency:
-          type: string
-          example: AUD
-        currency_pair:
-          type: string
-          example: AUDUSD
-        dealt_currency:
-          type: string
-          example: AUD
-        conversion_date:
-          type: string
-          example: "2021-03-22"
-        created_at:
-          type: string
-          example: "2021-03-20T10:08:12+1100"
-    ConversionAlteration:
       type: object
       required: 
         - request_id
